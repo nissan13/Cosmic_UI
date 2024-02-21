@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +32,13 @@ class LoginPage extends StatelessWidget {
             children: [
               Image.asset("assets/logo.png"),
               Container(
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3)
-                    ),
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3)),
                   ],
                   image: const DecorationImage(
                     image: AssetImage("assets/back.png"),
@@ -55,49 +59,26 @@ class LoginPage extends StatelessWidget {
                       const Text(
                         'Sign in',
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 30),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        style: const TextStyle(
-                          color: Colors.white70,
-                        ),
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          hintText: "Email",
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 32,
                         ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white70),
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          hintText: "Password",
-                        ),
+                      textField("Email"),
+                      const SizedBox(
+                        height: 20,
                       ),
+                      textField("Password"),
                       const SizedBox(
                         height: 20,
                       ),
                       const Text(
-                        "Forget Password?",
+                        "Forgot Password?",
                         style: TextStyle(
-                          color: Colors.blueAccent,
-                          // color: Color(0x0011dce8),
+                          color: Color(0xFF11dce8),
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                         ),
@@ -106,16 +87,34 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text(
-                            "Sign in",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          height: 44,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFF00E5E5),
+                                Color(0xFF72A5F2),
+                                Color(0xFFE961FF),
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "Sign in",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 24,
+                              ),
                             ),
                           ),
                         ),
                       ),
+                      // ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -130,47 +129,42 @@ class LoginPage extends StatelessWidget {
                           Text(
                             "or sign in using",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400),
+                                color: Color(0xFF8D8E99),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14),
                           ),
                           Divider(
                             color: Color(0xFF8D8E99),
+                            height: 16.8,
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        height: 30,
+                      SizedBox(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('apple.png'),
+                            socialLink("twitter"),
                             const SizedBox(
                               width: 10,
                             ),
-                            Image.asset('google.png'),
+                            socialLink("fb"),
                             const SizedBox(
                               width: 10,
                             ),
-                            Image.asset('fb.png'),
+                            socialLink("google"),
                           ],
                         ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      // const Center(
-                      //   child: Text(
-                      //     "Doesn't have an account? Sign up",
-                      //     style: TextStyle(color: Colors.white),
-                      //   ),
-                      // ),
                       Center(
                         child: RichText(
                           text: const TextSpan(
-                            text: "Doesn't have an account? ",
+                            text: "Don't have an account? ",
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
@@ -192,10 +186,46 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget socialLink(String filename) {
+    return Container(
+      height: 48,
+      width: 48,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 2),
+        color: const Color(0xFF091522),
+        shape: BoxShape.circle,
+        backgroundBlendMode: BlendMode.color,
+      ),
+      child: Image.asset(
+        "assets/$filename.png",
+        // 'google.png',
+        fit: BoxFit.fill,
+      ),
+    );
+  }
+
+  Widget textField(String name) {
+    return TextFormField(
+      style: const TextStyle(
+        color: Colors.white,
+      ),
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        border: OutlineInputBorder(
+          // borderSide: const BorderSide(color: Colors.yellow),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        hintText: name,
+        hintStyle: const TextStyle(color: Color(0xFF8D8E99)),
       ),
     );
   }

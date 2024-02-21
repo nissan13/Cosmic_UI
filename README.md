@@ -4,13 +4,6 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is the flutter application developed based on the given figma design where Bloc pattern is used for state management and Firebase is used for storing and retreiving the data.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+figma design credit: [https://www.figma.com/file/Qmbt7TBf3Oh5lwOR5XpC8L/Cosmic-%E2%80%94-Free-Flutter-App-UI-Template-(Community)?type=design&node-id=25-448&mode=design&t=CizxJ3pnX1iGdssl-0]

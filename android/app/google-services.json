@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "726424432463",
+    "project_id": "cosmic-ui",
+    "storage_bucket": "cosmic-ui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726424432463:android:64c7298e68c0885c2fdf3a",
+        "android_client_info": {
+          "package_name": "com.example.cosmic_ui_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXlKjQM0fkpyAMc0dQN2-9UrkIkGmf9l8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
